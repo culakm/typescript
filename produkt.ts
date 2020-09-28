@@ -56,7 +56,6 @@ function zobrazKartu(produkt: Produkt, div: string): void {
 
         }
     );
-
     element.innerHTML = output_str;
 }
 
@@ -66,7 +65,6 @@ function zobrazHodnoceni(obj: Hodnotitelny, div: string): void {
         <p class="hodnoceni">celkove hodnoceni: ${obj.celkoveHodnoceni}</p>
         <p class="hodnotilo">hodnotilo: ${obj.pocetHodnoticich}</p>
     `;
-
     element.innerHTML = hodnoceni;
 }
 
@@ -76,7 +74,6 @@ function zobrazClanek(clanek: Clanek, div: string): void {
         <h3 class="titulek">${clanek.titulek}</h3>
         <p class="text">Obsah:<br>${clanek.text}</p>
     `;
-
     element.innerHTML = output_str;
 }
 
