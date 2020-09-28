@@ -4,12 +4,7 @@ const form: HTMLFormElement = document.querySelector('#my_form');
 form.onsubmit = () => {
   const formData = new FormData(form);
   const text_orig = formData.get('textInput') as string;
-  const text_new = '';//rand_word(text_orig);
   const text_new2 = rand_words(text_orig);
-
-  var element = document.getElementById('new_word');
-  element.innerHTML = '<p>' + text_new + '</p>';
-
   var element2 = document.getElementById('new_word2');
   element2.innerHTML = '<p>' + text_new2 + '</p>';;
   return false; // prevent reload
@@ -36,7 +31,12 @@ function rand_word(text_orig) {
     // text splitted to array
     // text array shuffled
     // shuffled array joined
-    return shuffle(text_orig.split("")).join("");
+    let text_new = text_orig;
+    do {
+        text_new = shuffle(text_orig.split("")).join("");
+    } while (text_new == text_orig)
+
+    return text_new;
 }
 
 
@@ -45,11 +45,21 @@ function shuffle(array) {
     // While there remain elements to shuffle...
     while (0 !== currentIndex) {
         // Pick a remaining element...
+        let last = 0;
+        do {
+            let random_number = Math.random();
+            randomIndex = Math.floor(random_number * currentIndex);
+            // find other if '
+            if (array[randomIndex] !== "'"){
+                last = 1;
+            }
+        } while (last === 0)
 
-        let random_number = Math.random();
-        console.log((Math.floor(random_number * currentIndex)) + "-" +(random_number * currentIndex) + "-"+ (random_number ) + "-"+ (currentIndex));
-        randomIndex = Math.floor(random_number * currentIndex);
         currentIndex -= 1;
+        // skip '
+        if (array[currentIndex] === "'"){
+            continue;
+        }
         // And swap it with the current element.
         temporaryValue = array[currentIndex];
         array[currentIndex] = array[randomIndex];
