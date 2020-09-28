@@ -38,6 +38,7 @@ function rand_word(text_orig) {
     // shuffled array joined
     return shuffle(text_orig.split("")).join("");
 }
+/////
 
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
