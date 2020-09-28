@@ -44,8 +44,6 @@ function shuffle(array: string[]): string[] {
   return array;
 }
 
-
-
 // produkt FOREACH
 interface Produkt {
     jmeno: string;
@@ -62,13 +60,12 @@ const plysak: Produkt = {
     skladem: true
     //, dilino: 'this is dilino'
 };
-function zobrazKartu(produkt: Produkt) {
 
+function zobrazKartu(produkt: Produkt): void {
     const element = document.getElementById('karta');
-
     let polozky: string[] = ['jmeno', 'popis', 'skladem', 'cena', 'dilino'];
-
     let output_str: string = '';
+
     //polozky.forEach(polozka => console.log(polozka));
     //polozky.forEach(myForeachFunction);
     // function myForeachFunction(item: string, index: number) {...}
@@ -85,7 +82,6 @@ function zobrazKartu(produkt: Produkt) {
 
         }
     );
-
 
     element.innerHTML = output_str;
 }
