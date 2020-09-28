@@ -52,17 +52,16 @@ interface Produkt {
     popis: string;
     cena: number;
     skladem: boolean;
-    dilino: string;
+    dilino?: string; // optional variable
 }
 
 const plysak: Produkt = {
     jmeno: 'Plyšový medvěd',
     popis: 'Plyšová hračka zobrazující medvěda v sedu.',
     cena: 223,
-    skladem: true,
-    dilino: 'hohoho!'
-}
-
+    skladem: true
+    //, dilino: 'this is dilino'
+};
 function zobrazKartu(produkt: Produkt) {
 
     const element = document.getElementById('karta');
@@ -75,10 +74,13 @@ function zobrazKartu(produkt: Produkt) {
     // function myForeachFunction(item: string, index: number) {...}
     polozky.forEach(function (item: string, index: number) {
             if (item == 'jmeno'){ //or if (index == 0){
-                output_str = output_str + `<h3 class="header">${item}: ${produkt[item]} lala</h3>`;
+                output_str += `<h3 class="header">${item}: ${produkt[item]} lala</h3>`;
+            }
+            else if (item == 'dilino'){
+                output_str += '<p class="dilino">dilino (optional): ' + (produkt[item] ? produkt[item] : 'dilino unknown') + '</p>';
             }
             else{
-                output_str = output_str + `<p class="${item}">${item}: ${produkt[item]}</p>`;
+                output_str += `<p class="${item}">${item}: ${produkt[item]}</p>`;
             }
 
         }
