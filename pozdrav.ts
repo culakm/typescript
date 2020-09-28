@@ -44,7 +44,7 @@ function shuffle(array: string[]): string[] {
   return array;
 }
 
-// produkt FOREACH
+// interface for Produkt
 interface Produkt {
     jmeno: string;
     popis: string;
@@ -52,6 +52,12 @@ interface Produkt {
     skladem: boolean;
     dilino?: string; // optional variable
 }
+
+// interface for array, can't use with foreach!!
+// interface seznam {
+//     [index: number]: string;
+// }
+// let list2: seznam = ["Honza", 2, "Petr"];
 
 const plysak: Produkt = {
     jmeno: 'Plyšový medvěd',
